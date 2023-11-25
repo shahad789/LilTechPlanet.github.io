@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset= "utf-8">
+    <title>Adminstartor Page</title>
+
+<script src="color.js"></script>
+<link rel='stylesheet' href='project.css'>
+      <script>   // Function to display the current week's date
+        function displayCurrentDate() {
+            var currentDate = new Date();
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var formattedDate = currentDate.toLocaleDateString('en-US', options);
+    
+            // Display the formatted date above the lists
+            document.getElementById('currentDate').innerText = 'Current Week: ' + formattedDate;
+        }
+    var currentDate = new Date();
+    var message = "Current date: " + currentDate.toString();
+    document.write("<h2 style='font-weight:bold; text-align:center; background-color:purple; color:white;'>" +message+ "</h2>"  );
+  
+
+    </script>
+
+
+
+
+  
+    <style>
+
+
+
+
+
+.student-list {
+    width: 60em;
+    height: 30vh;
+    overflow: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background: linear-gradient(135deg, #d593f0,#b6e2ff, #F0B8EA);
+}
+
+
+
+.student-list ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.student-list li {
+    flex: 1 1 calc(25% - 10px);
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+	font-size:1.5em;
+}
+
+.course-box,
+.Tutor {
+    width: 90em;
+    height: 40em;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow: auto;
+	 margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    background: linear-gradient(135deg, #d593f0,#b6e2ff, #F0B8EA);
+
+   
+}
+
+        .CORbox {
+            width: 25em;
+            height: 15em;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            overflow-y: hidden; /* Initially hidden */
+        }
+		
+		
+		 /* Add a class for the hidden state */
+        .scrollable {
+            overflow-y: auto;
+        }
+
+        /* Add a class for the "more" button */
+        .show-more-btn {
+            cursor: pointer;
+            color: blue;
+        }
+
+.Tutbox a{text-decoration:none; color:purple;}
+
+.Tutbox {
+ width: 30em;
+ height: 15em;
+    margin:10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    
+}
+
+.CORcontent,
+.Tutcontent {
+    height: 200px;
+    width: 150px;
+}
+
+.CORcontent, .Tutcontent{font-size:1.5em;}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    margin: 5px;
+}
+
+
+* {
+
+font-family: monospace;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+
+
+
+background: var(--primary-color);
+
+}
+
+
+
+h2 {
+text-align: center;
+}
+
+
+
+
+
+    </style>
+	
+
+
+
+	
+	
+</head>
+
+<body>
+ <a  id="icon" alt="Change Theme"></a>
+    <header>
+        <div class="logo">
+            <img src="pic/logo.jpg" alt="Platform Logo">
+        </div>
+        <h1>LilTechPlanet</h1>
+    </header>
+
+    <nav>
+         <a href="index.html" accesskey="h">Home</a>
+        <a href="Courses.html" accesskey="c">Courses</a>
+        <a href="Tutor.html" accesskey="t">Tutors</a>
+        <a href="Adminstrator.html" accesskey="a">Adminstrator's Dashboard</a>
+        <a href="Parent.html" accesskey="p">Parent's Dashboard</a>
+    </nav>
+     <div id="bread">
+  <ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li class="current">Adminstrator's Dashboard</li>
+   </ul>
+</div>
+
+   
+
+    <div class="size">
+        <h2>Student Names</h2>
+        <div class="student-list">
+            <ul>
+               <li>Rawan</li>
+            <li>Sami</li>
+            <li>Saad</li>
+            <li>Ali</li>
+			  <li>Lania</li>
+              <li>Saad</li>
+              <li>Ali</li>
+              <li>Abduallah</li>
+              <li>Lina</li>
+              <li>Lama</li>
+              <li>Muhammed</li>
+              <li>Ahmed</li>
+              <li>Saud</li>
+              <li>Yahya</li>
+              <li>Lana</li>
+              <li>Sarah</li>
+			  <li>Rand</li>
+                 <li>Roaa</li>
+                 <li>Liyan</li>
+                 <li>Samaa</li>
+                 <li>Judy</li>
+                 <li>Bana</li>
+			     <li>Joud</li>
+                <li>Raghad</li>
+                <li>Haya</li>
+                <li>Maha</li>
+                <li>Tariq</li>
+                <li>Deema</li>
+                <li>Nehad</li>
+                <li>Noor</li>
+				   <li>Sarah</li>
+                <li>Sarra</li>
+                <li>Lina</li>
+                <li>Ali</li>
+                <li>Sami</li>
+                <li>Leen</li>
+				 <li>Jackson</li>
+                <li>Selena</li>
+                <li>Taylor</li>
+                <li>Mostafa</li>
+                <li>Omar</li>
+                <li>Joury</li>
+                <li>Ziad</li>
+                <li>Mohannad</li>
+                <li>Salman</li>
+				 <li>Wassayif</li>
+                <li>weaam</li>
+                <li>Reema</li>
+                <li>Sultan</li>
+                <li>Waad</li>
+                <li>Afnan</li>
+                <li>Lujain</li>
+                <li>Alreem</li>
+				   <li>Moayad</li>
+                <li>Khalid</li>
+                <li>Maya</li>
+				 <li>Rania</li>
+                 <li>Lamia</li>
+                 <li>Wejoud</li>
+                 <li>Aroob</li>
+				   <li>Jana</li>
+                <li>Jomanah</li>
+                <li>Abdulwahab</li>
+                <li>Joman</li>
+                <li>Roqaya</li>
+                <li>amena</li>
+                <li>afia</li>
+                <li>kawthar</li>
+                <li>batool</li>
+                 <li>Shouq</li>
+                 <li>Hessa</li>
+                 <li>Fatema</li>
+                 <li>Alia</li>
+                 <li>kadeeja</li>
+            </ul>
+        </div>
+
+        <h2>Courses</h2>
+        <div class="course-box">
+             <div class="CORbox">
+            <div class="CORcontent">
+             <h3>CSS | Teacher Ahmed Ali</h3>
+             <ul class="list">
+			
+<li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+
+                <li>Rawan</li>
+            <li>Sami</li>
+            <li>Saad</li>
+            <li>Ali</li>
+             <li>Sami</li>
+                  <li>Yahya</li>
+              <li>Lana</li>
+              <li>Sarah</li>
+			  <li>Rand</li>
+                 
+             </ul>
+         </div></div>
+
+         <div class="CORbox">
+            <div class="CORcontent">
+             <h3>Java|Teacher Abduallah Motaqi</h3>
+             <ul class="list">
+      
+		   <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+
+
+              <li>Saad</li>
+              <li>Ali</li>
+              <li>Abduallah</li>
+              <li>Lina</li>
+			   <li>Aroob</li>
+                 <li>Shouq</li>
+                 <li>Hessa</li>
+                 <li>Fatema</li>
+                 <li>Alia</li>
+                 <li>kadeeja</li>
+              
+             </ul>
+         </div></div>
+
+         <div class="CORbox">
+            <div class="CORcontent">
+             <h3>JASON | Teacher Omar Asem</h3>
+             <ul class="list">
+          <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+
+
+                <li>Raghad</li>
+                <li>Haya</li>
+                <li>Maha</li>
+                <li>Tariq</li>
+				<li>rania</li>
+				 <li>Sami</li>
+                <li>Leen</li>
+           
+              
+               
+             </ul>
+         </div></div>
+		 
+		       <div class="CORbox">
+            <div class="CORcontent">
+             <h3>HTML | Teacher Ahmad Ali</h3>
+             <ul class="list">
+		  <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Sarah</li>
+                <li>Sarra</li>
+                <li>Lina</li>
+                <li>Ali</li>
+				<li>alex</li>
+              
+                
+             </ul>
+         </div></div>
+
+   <div class="CORbox">
+            <div class="CORcontent">
+             <h3>Python | Teacher Omayma Khalid</h3>
+             <ul class="list">
+			   <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Jackson</li>
+                <li>Selena</li>
+                <li>Taylor</li>
+                 <li>Khalid</li>
+                <li>Maya</li>
+                
+            
+                
+             </ul>
+         </div></div>
+		 
+		 
+		 
+		    <div class="CORbox">
+            <div class="CORcontent">
+             <h3>c++ | Teacher Abdullah Motaqi</h3>
+             <ul class="list">
+			   <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Wassayif</li>
+                <li>weaam</li>
+                <li>Reema</li>
+                <li>Sultan</li>
+				<li>waleed</li>
+				<li>kareem</li>
+              
+              
+                
+             </ul>
+         </div></div>
+		 
+		 
+		    <div class="CORbox">
+            <div class="CORcontent">
+             <h3>C# | Teacher Abduallah Motaqi</h3>
+             <ul class="list">
+			   <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Moayad</li>
+                <li>Khalid</li>
+                <li>Maya</li>
+				    <li>Fatema</li>
+					<li>motaz</li>
+               
+             
+               
+             </ul>
+         </div></div>
+
+
+         <div class="CORbox">
+            <div class="CORcontent">
+             <h3>AI | Teacher Norah Ahmed </h3>
+             <ul class="list">
+			   <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Rania</li>
+                 <li>Lamia</li>
+                 <li>Wejoud</li>
+				 <li>bisan</li>
+				 <li>saud</li>
+                
+             
+                 
+             </ul>
+         </div></div>
+
+         <div class="CORbox">
+            <div class="CORcontent">
+             <h3>Robotics | Teacher Ahmed Ali</h3>
+             <ul class="list">
+			    <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Rand</li>
+                 <li>Roaa</li>
+                 <li>Liyan</li>
+                 <li>Samaa</li>
+                 <li>Judy</li>
+            
+               
+             </ul>
+         </div></div>
+
+         <div class="CORbox">
+            <div class="CORcontent">
+             <h3>PHP |Teacher Omayma Khalid</h3>
+             <ul class="list">
+			   <li><a class="show-more-btn" onclick="toggleScroll(this)">More</a></li>
+                <li>Jana</li>
+                <li>Jomanah</li>
+                <li>Abdulwahab</li>
+                <li>Joman</li>
+                <li>Roqaya</li>
+               
+               
+             </ul>
+         </div>
+        </div>
+
+        </div>
+
+        <h2>Tutors</h2>
+        <div class="Tutor">
+            <div class="Tutbox">
+        <div class="Tutcontent">
+            <h3><a href="Schedule1.html">Teacher Ahmed Ali</a></h3>
+            <ul class="list">
+                <li>Robotics</li>
+                <li>Html</li>
+                <li>Css</li>
+                
+
+            </ul>
+        </div></div>
+       
+        <div class="Tutbox">
+            <div class="Tutcontent">
+            <h3><a href="Schedule1.html">Teacher Omayma Khalid</a></h3>
+            <ul class="list">
+                <li>Python</li>
+                <li>PHP</li>
+               
+            </ul>
+        </div>
+        </div>
+        <div class="Tutbox">
+            <div class="Tutcontent">
+            <h3><a href="Schedule1.html">Teacher Nora Ahmed</a></h3>
+            <ul class="list">
+                <li>AI</li>
+               
+            </ul>
+        </div></div>
+       
+        <div class="Tutbox">
+            <div class="Tutcontent">
+            <h3><a href="Schedule2.html">Teacher Abduallah motaqi</a></h3>
+            <ul class="list">
+                <li>Java</li>
+                <li>C</li>
+                <li>C++</li>
+            </ul>
+        </div></div>
+       
+        <div class="Tutbox">
+            <div class="Tutcontent">
+            <h3><a href="Schedule1.html">Teacher Omar asem</a></h3>
+            <ul class="list">
+                <li>JSON</li>
+            </ul>
+        </div></div>
+       
+        </div>
+        </div>
+    
+    <br>
+    <footer>
+  <p class="contactinfo"> Contact Information:<br>LilTechPlant@techtech.com</p>
+  <p class="provide">Provided by LilTechPlanet</p> 
+  </footer>
+  
+
+  
+  
+</body>
+
+
+
+
+<script>
+
+
+function toggleScroll(btn) {
+    
+    var box = btn.closest('.CORbox');   
+    box.classList.toggle('scrollable');
+}
+
+
+
+
+    </script>
+
+
+</html>

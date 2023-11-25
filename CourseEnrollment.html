@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset= utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="project.css">
+      
+		  <script src="color.js"></script>
+    <title>Course Enrollment</title>
+    <style>
+        * {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--primary-color);
+            justify-content: space-between; /* Adjust for the footer placement */
+        }
+
+ #bread	{background: var(--secondary-color); margin: 0;}
+ul.breadcrumb { padding: 10px 16px;  list-style: none;   display:flex; justify-content: left;}
+ul.breadcrumb li {font-size: 18px; }
+ul.breadcrumb li+li:before { padding: 8px; color: black;  content: "\003e" ;}
+.current{color:white;}
+ul.breadcrumb li a:hover { color:pink;  text-decoration: underline; }
+
+        .logo {
+            font-size: 24px;
+        }
+
+        .logo img {
+            width: 100px;
+            margin-right: 10px;
+        }
+
+       
+
+        .rounded-box {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            flex-grow: 1; /* Allow it to grow and push footer to the bottom */
+            align-self: center; /* Center the box vertically */
+        }
+
+        h1, form, select, h2, label, div, input, button {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        
+
+
+        footer {
+            background-color: var(--third-color);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+
+</head>
+<body>
+ <a  id="icon" alt="Change Theme"></a>
+    <header>
+        <div class="logo">
+            <img src="pic/logo.jpg" alt="Platform Logo">
+        </div>
+        <h1>LilTechPlanet</h1>
+    </header>
+
+    <nav>
+        <a href="index.html" accesskey="h">Home</a>
+        <a href="Courses.html" accesskey="c">Courses</a>
+        <a href="Tutor.html" accesskey="t">Tutors</a>
+        <a href="Adminstrator.html" accesskey="a">Adminstrator's Dashboard</a>
+        <a href="Parent.html" accesskey="p">Parent's Dashboard</a>
+    </nav>
+
+    <div id="bread">
+  <ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Parent.html">Parent</a></li>
+    <li class="current">Course Enrollment</li>
+   </ul>
+</div>
+
+ <div class="rounded-box"> <!-- Container for the white box -->
+        <h1>Course Enrollment</h1>
+        <form>
+            <label for="child">Select Child:</label>
+            <select id="child" name="child"></select>
+
+            <h2>Filter Courses:</h2>
+            <label for="tutor">Filter by Tutor:</label>
+            <select id="tutor" name="tutor"></select>
+
+            <label for="prerequisite">Filter by Prerequisite:</label>
+            <select id="prerequisite" name="prerequisite"></select>
+
+            <button type="button" id="filterButton">Filter</button>
+
+            <h2>Select Courses:</h2>
+            <label for="courses">Courses:</label>
+            <div id="courses"></div>
+
+            <button type="button" id="enrollButton">Enroll</button>
+        </form>
+    </div>
+
+    <footer id="footer">
+        <p class="contactinfo"> Contact Information:<br>LilTechPlant@techtech.com</p>
+        <p class="provide">Provided by LilTechPlanet</p> 
+    </footer>
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+        // Function to retrieve children's names from local storage
+        function retrieveChildrenFromLocalStorage() {
+            var storedChildren = localStorage.getItem("parentChildren");
+            if (storedChildren) {
+                var parsedChildren = JSON.parse(storedChildren);
+                return parsedChildren.map(child => child.name);
+            }
+            return [];
+        }
+
+        // Function to create checkbox label for a course
+        function createCheckboxLabel(course) {
+            const input = document.createElement("input");
+            input.type = "checkbox";
+            input.id = course.name.toLowerCase().replace(' ', '');
+            input.name = course.name.toLowerCase().replace(' ', '');
+
+            const label = document.createElement("label");
+            label.htmlFor = course.name.toLowerCase().replace(' ', '');
+
+            label.innerHTML = `<img src="pic/${course.name.toLowerCase()}.png" alt="${course.name}" height="25">${course.name}`;
+            
+            return { input, label, tutor: course.tutor };
+        }
+
+        // Function to append course to the courses div
+        function appendCourseToDiv(course, coursesDiv) {
+            const { input, label, tutor } = createCheckboxLabel(course);
+            input.tutor = tutor;
+            
+            coursesDiv.appendChild(input);
+            coursesDiv.appendChild(label);
+            coursesDiv.appendChild(document.createElement("br"));
+        }
+    // Function to populate all courses as checkboxes
+            function populateAllCourses() {
+                const coursesDiv = document.getElementById("courses");
+                coursesArray.forEach(course => {
+                    appendCourseToDiv(course, coursesDiv);
+                });
+            }
+// Function to populate child select options
+  function populateChildSelect() {
+    const childSelect = document.getElementById("child");
+    const storedChildren = JSON.parse(localStorage.getItem('childName')) || [];
+
+    // Clear existing options
+    childSelect.innerHTML = '<option value="">Select Child</option>';
+
+    storedChildren.forEach(child => {
+      const option = document.createElement("option");
+      option.value = child.toLowerCase().replace(' ', '');
+      option.textContent = child;
+      childSelect.appendChild(option);
+    });
+  }
+        // Function to populate filter options
+        function populateFilterOptions() {
+            const tutorSelect = document.getElementById("tutor");
+            const prerequisiteSelect = document.getElementById("prerequisite");
+
+            tutorSelect.innerHTML = '<option value="all">All Tutors</option>';
+            prerequisiteSelect.innerHTML = '<option value="all">All Prerequisites</option>';
+
+            const uniqueTutors = new Set(coursesArray.map(course => course.tutor));
+            const uniquePrerequisites = new Set(coursesArray.map(course => course.prerequisite));
+
+            uniqueTutors.forEach(tutor => {
+                const option = document.createElement("option");
+                option.value = tutor.toLowerCase().replace(' ', '');
+                option.textContent = tutor;
+                tutorSelect.appendChild(option);
+            });
+
+            uniquePrerequisites.forEach(prerequisite => {
+                if (prerequisite) {
+                    const option = document.createElement("option");
+                    option.value = prerequisite.toLowerCase().replace(' ', '');
+                    option.textContent = prerequisite;
+                    prerequisiteSelect.appendChild(option);
+                }
+            });
+        }
+
+        // Function to filter courses based on selected filters
+        function filterCourses() {
+            const tutorFilter = document.getElementById("tutor").value.toLowerCase();
+            const prerequisiteFilter = document.getElementById("prerequisite").value.toLowerCase();
+
+            const filteredCourses = coursesArray.filter(course => {
+                const tutorMatch = tutorFilter === "all" || course.tutor.toLowerCase().replace(' ', '') === tutorFilter;
+                const prerequisiteMatch = prerequisiteFilter === "all" || (course.prerequisite && course.prerequisite.toLowerCase() === prerequisiteFilter);
+                return tutorMatch && prerequisiteMatch;
+            });
+
+            const coursesDiv = document.getElementById("courses");
+            coursesDiv.innerHTML = "";
+
+            filteredCourses.forEach(course => {
+                appendCourseToDiv(course, coursesDiv);
+            });
+        }
+
+        // Function to enroll the child in selected courses
+        function enroll() {
+            const childSelect = document.getElementById("child");
+            if (childSelect.value === "") {
+                alert("Please select a child.");
+                return;
+            }
+
+            const selectedCourses = document.querySelectorAll('input[type="checkbox"]:checked');
+            if (selectedCourses.length === 0) {
+                alert("Please select at least one course.");
+                return;
+            }
+
+            // Display enrollment information
+            const enrollmentInfo = document.createElement("div");
+            enrollmentInfo.id = "enrollmentInfo";
+            enrollmentInfo.innerHTML = `<h2>Enrollment Information</h2><p>Child: ${childSelect.options[childSelect.selectedIndex].text}</p><p>Courses: ${Array.from(selectedCourses).map(course => `${course.name} (Tutor: ${course.tutor})`).join(', ')}</p>`;
+
+            const existingInfo = document.getElementById("enrollmentInfo");
+            if (existingInfo) {
+                existingInfo.remove();
+            }
+
+            document.body.insertBefore(enrollmentInfo, document.getElementById("footer"));
+
+            childSelect.value = "";
+            document.getElementById("tutor").value = "all";
+            document.getElementById("prerequisite").value = "all";
+            selectedCourses.forEach(course => {
+                course.checked = false;
+            });
+        }
+
+       // Event listeners for filter and enroll buttons
+            document.getElementById("filterButton").addEventListener("click", filterCourses);
+            document.getElementById("enrollButton").addEventListener("click", enroll);
+
+        // Populate child select options on page load
+        populateChildSelect();
+
+          const coursesArray = [
+            { name: "Robotics", tutor: "Ahmad Ali", prerequisite: null },
+            { name: "Html", tutor: "Omayma Khaled", prerequisite: null },
+            { name: "C++", tutor: "Nora Ahmad", prerequisite: "Html" },
+            { name: "CSS", tutor: "Abduallah Motaqi", prerequisite: "Html" },
+            { name: "CSharp", tutor: "Omar Asem", prerequisite: "C++" },
+            { name: "PHP", tutor: "Ahmad Ali", prerequisite: "Html" },
+            { name: "Python", tutor: "Omayma Khaled", prerequisite: "CSS" },
+            { name: "AI", tutor: "Nora Ahmad", prerequisite: "Python" },
+            { name: "Java", tutor: "Abduallah Motaqi", prerequisite: "C++" }
+        ];
+ populateAllCourses();
+          populateFilterOptions();
+    });
+</script>
+
+
+
+</body>
+</html>

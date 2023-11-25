@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutor Page</title>
+<link rel='stylesheet' href='project.css'>
+<script src="javScript.js" ></script>
+<script src="color.js"></script>
+<script>
+var currentTheme = localStorage.getItem("theme");
+
+// If there is a theme stored, apply it
+if (currentTheme) {
+    document.body.classList.add(currentTheme);
+}
+</script>
+</head>
+
+<body>
+<a  id="icon" alt="Change Theme"></a>
+
+   <header>
+        <div class="logo">
+            <img src="pic/logo.jpg" alt="Platform Logo">
+        </div>
+        <h1>LilTechPlanet</h1>
+    </header>
+
+    <nav>
+         <a href="index.html" accesskey="h">Home</a>
+        <a href="Courses.html" accesskey="c">Courses</a>
+        <a href="Tutor.html" accesskey="t">Tutors</a>
+        <a href="Adminstrator.html" accesskey="a">Adminstrator's Dashboard</a>
+        <a href="Parent.html" accesskey="p">Parent's Dashboard</a>
+    </nav>
+
+
+<div id="bread">
+  <ul class="breadcrumb">
+  <li><a href="index.html">Home</a></li>
+<li class="current">Tutor</li>
+   </ul>
+</div>
+
+
+
+<main id="tut">
+<h1 class="tutorhead">Tutor Information</h1>
+
+<select id="arrange" name="arrange" onchange="sort()">
+<option value="sort">Sort</option>
+<option value="alphabetical(a-z)">A-Z</option>
+<option value="alphabetical(z-a)">Z-A</option>
+</select>
+
+<div class='tutorList'>
+
+<div class='tutor'>
+<h2>Ahmad Ali</h2>
+<img id="tutpic1" src="pic/manprofile1.png" alt="Tutor 1">
+<h5><strong>Email:</strong>ahmadAli@gmail.com</h5>
+<h5><strong>Courses:</strong>Robotics,HTML,CSS</h5>
+<p><Strong>More information:</strong>This tutor has many experiences teaching this topic, and have a collection of 
+awards in robotics intelligence.</p>
+</div>
+
+
+<div class='tutor'>
+<h2>Omayma khalid</h2>
+<img id="tutpic2" src="pic/girlprofile.png" alt="Tutor 2">
+<h5><strong>Email:</strong>omaymaK@gmail.com</h5>
+<h5><strong>Courses:</strong>Python,PHP</h5>
+<p><Strong>More information:</strong>This tutor worked at ksu for 15 years and did amazing jobs
+she has been in university for so long and did many work and achivment</p>
+</div>
+
+
+<div class='tutor'>
+<h2>Nora ahmad</h2>
+<img id="tutpic3" src="pic/womanprofile2.png" alt="Tutor 3">
+<h5><strong>Email:</strong>noraA@gmail.com</h5>
+<h5><strong>Courses:</strong>AI</h5>
+<p><Strong>More information:</strong>This tutor has a master and PHP in Artificial Intelligence.</p>
+</div>
+
+
+<div class='tutor'>
+<h2>Abduallah motaqi</h2>
+<img id="tutpic4" src="pic/manprofile2.png" alt="Tutor 4">
+<h5><strong>Email:</strong>abduallahM@gmail.com</h5>
+<h5><strong>Courses:</strong>java,c#,c++</h5>
+<p><Strong>More information:</strong>This tutor has 20 experince in coding proffensional programs.</p>
+</div>
+
+<div class='tutor'>
+<h2>Omar asem</h2>
+<img id="tutpic5" src="pic/manprofile3.png" alt="Tutor 5">
+<h5><strong>Email:</strong>omarA@gmail.com</h5>
+<h5><strong>Courses:</strong>JSON</h5>
+<p><Strong>More information:</strong>This tutor have recently graduated from top 5 university in world.</p>
+</div>
+
+</div>
+</main>
+
+ <footer>
+  <p class="contactinfo"> Contact Information:<br>LilTechPlant@techtech.com</p>
+  <p class="provide">Provided by LilTechPlanet</p>
+  
+  </footer>
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Course Evaluation</title>
+		<link rel="stylesheet" href="project.css">
+      
+		  <script src="color.js"></script>
+  <style>
+        * {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+        }
+
+        .rating {
+        font-size:2em;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            transform: rotate(180deg);
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            cursor: pointer;
+            font-size: 200%;
+        }
+
+        .rating label:after {
+            content: "\2736";
+            color: #ccc;
+        }
+
+        .rating label:hover:after,
+        .rating label:hover ~ label:after,
+        .rating input:checked ~ label:after {
+            color: #ffcc00;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--primary-color);
+        }
+
+       
+
+        .test {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Style the white rounded box */
+        .rounded-box {
+            background: white;
+            border-radius: 20px;
+            padding: 7em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+            .rounded-box h1{ font-size:4em;}
+
+        h1, form, select, h2, textarea, button {
+            text-align: center;
+            margin: 5px 0;
+            font-size:1.3em;
+        }
+
+        
+
+        footer {
+            background-color: var(--third-color);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+</style>
+</head>
+<body>
+  <a  id="icon" alt="Change Theme"></a>
+<header>
+  <!-- Header content remains unchanged -->
+  <div class="logo">
+            <img src="pic/logo.jpg" alt="Platform Logo">
+        </div>
+        <h1>LilTechPlanet</h1>
+
+</header>
+
+<nav>
+  <!-- Navigation content remains unchanged -->
+    <nav>
+           <a href="index.html" accesskey="h">Home</a>
+        <a href="Courses.html" accesskey="c">Courses</a>
+        <a href="Tutor.html" accesskey="t">Tutors</a>
+        <a href="Adminstrator.html" accesskey="a">Adminstrator's Dashboard</a>
+        <a href="Parent.html" accesskey="p">Parent's Dashboard</a>
+    </nav>
+
+</nav>
+
+
+  <!-- Breadcrumb content remains unchanged -->
+  <div id="bread">
+  <ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Parent.html">Parent</a></li>
+    <li class="current">Course Evaluation</li>
+   </ul>
+</div>
+
+
+
+
+<div class="test">
+  <div class="rounded-box">
+    <h1>Course Evaluation</h1>
+    <form id="evaluationForm">
+      <label for="course">Select Course:</label>
+      <select id="course" name="course">
+        <option value="course1">Robotics</option>
+        <option value="course2">Html</option>
+        <option value="course3">C++</option>
+          <option value="course4">CSS</option>
+                <option value="course5">C#</option>
+                <option value="course6">PHP</option>
+                <option value="course7">Python</option>
+                <option value="course8">AI</option>
+                <option value="course9">Java</option>
+                <option value="course10">JSON</option>
+      </select>
+
+      <h2>Rate the Course:</h2>
+      <div class="rating">
+        <!-- Rating stars input remains unchanged -->
+          <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5"></label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4"></label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3"></label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2"></label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1"></label>
+
+      </div>
+      <br>
+
+      <h2>Feedback:</h2>
+      <textarea id="feedback" name="feedback" rows="4" cols="50" placeholder="Provide your feedback here..."></textarea>
+      <br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <!-- Footer content remains unchanged -->
+  <p class="contactinfo"> Contact Information:<br>LilTechPlant@techtech.com</p>
+  <p class="provide">Provided by LilTechPlanet</p> 
+
+</footer>
+
+<script>
+  document.getElementById('evaluationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the default form submission
+
+    // Retrieving values from the form
+    const selectedCourseElement = document.getElementById('course');
+    const selectedCourseName = selectedCourseElement.options[selectedCourseElement.selectedIndex].text;
+    const selectedRating = document.querySelector('input[name="rating"]:checked');
+    const feedback = document.getElementById('feedback').value;
+
+    // Checking if a course is selected and a rating is given
+    if (selectedCourseName && selectedRating) {
+      const userRating = selectedRating.value;
+
+      // Displaying the alert message with the selected course name and rating
+      alert(`Thank you for your feedback!\nYour rating for the course "${selectedCourseName}" is ${userRating}`);
+
+      // Optionally, you can reset the form after successful submission
+      document.getElementById('evaluationForm').reset();
+    } else {
+      alert('Please select a course and provide a rating before submitting.');
+    }
+  });
+</script>
+</body>
+</html>

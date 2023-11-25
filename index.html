@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Meta tags, title, and existing styles -->
+    <!-- ... (your existing code) ... -->
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+   <link rel='stylesheet' href='project.css'>
+  <script src="color.js"></script>
+    <style>
+      @media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .homecourse , .parentreview {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+   .main, .homecourse  , .parentreview, .cour, .rev {
+    width: 100%;
+  }
+  
+  .vis {max-width:80%; }
+  
+   #home h1 {max-width:100%; font-size:10vw}
+  
+    nav {
+	   
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+   
+}
+
+
+/**------------------------------------------------------------------------------------------------/
+
+
+        /* Responsive design */
+        /* For tablets */
+        @media only screen and (max-width: 800px) {
+            /* Adjusting main content width */
+            .main {
+                width: 80%;
+                padding: 0;
+            }
+            /* Setting width for specific elements */
+            .homecourse, .parentreview, .cour, .rev {
+                width: 100%;
+            }
+            .vis {
+                max-width: 80%;
+            }
+            #home h1 {
+                max-width: 100%;
+                font-size: 10vw;
+            }
+            /* Adjusting navigation for smaller screens */
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+        }
+
+        /* For mobile phones */
+        @media only screen and (max-width: 500px) {
+            /* Adjusting specific elements' width */
+            .main, .homecourse, .parentreview, .cour, .rev {
+                width: 100%;
+            }
+            .vis {
+                max-width: 80%;
+            }
+            #home h1 {
+                max-width: 100%;
+                font-size: 10vw;
+            }
+            /* Adjusting navigation for smaller screens */
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+        <div class="logo">
+            <img src="pic/logo.jpg" alt="Platform Logo">
+        </div>
+        <h1>LilTechPlanet</h1>
+    </header>
+
+
+    <nav>
+         <a href="index.html" accesskey="h">Home</a>
+        <a href="Courses.html" accesskey="c">Courses</a>
+        <a href="Tutor.html" accesskey="t">Tutors</a>
+        <a href="Adminstrator.html" accesskey="a">Adminstrator's Dashboard</a>
+        <a href="Parent.html" accesskey="p">Parent's Dashboard</a>
+		<!--<img src="pic/color.png" id="icon">-->
+		<img src="pic/color.png" id="icon" alt="Change Theme">
+
+    </nav>
+
+<div id="bread">
+  <ul class="breadcrumb">
+	<li class="current">Home</li>
+   </ul>
+</div>
+    
+
+
+ <main id="home">
+     <h1 id="main-title">LilTechPlanet</h1>
+      
+        <div class="vis">
+            <h2 id="log"> <img src="pic/logo.jpg" alt="Website Logo"> </h2>
+        </div>
+        <div class="vis">
+          <h2>Vision</h2>
+            <p>
+                At LilTechPlanet, our vision is centered on the concept of dynamic and captivating education.
+                Our goal is to offer children an accessible and enjoyable learning experience through a 
+                user-friendly interface. This interface will grant them access to a diverse spectrum of 
+                programming languages, ranging from Scratch for beginners to more advanced languages like Python
+                and JavaScript. In addition, we are committed to providing a structured developmental path for children.
+                We understand the importance of parental involvement and will ensure that parents have access
+                to progress reports, allowing them to actively engage in their child's educational voyage.
+            </p>
+			<hr>
+        </div>
+		
+		<div class="homecourse">
+		
+		<div class="cour">
+		<h2>Robotics</h2>
+		<h4><img src="pic/robotics.png" alt="robotics"></h4>
+		<p>Description: It covers mechanical engineering, electronics,
+		computer science, and artificial intelligence to equip students
+		with the skills needed for automation, manufacturing, and other industries.</p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		<div class="cour">
+		<h2>HTML</h2>
+		<h4><img src="pic/html.png" alt="HTML"></h4>
+		<p>It is foundational knowledge that enables students  design and develop web pages,
+		gaining essential skills for web development and content creation in today's digital world</p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		<div class="cour">
+		<h2>CSS</h2>
+		<h4><img src="pic/css.png" alt="CSS"></h4>
+		<p>A CSS course is a learning program that focuses on Cascading Style Sheets,
+		a crucial technology for web design and presentation. In a CSS course, students 
+		explore how to enhance the visual appearance of web pages by styling HTML elements. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		<div class="cour">
+		<h2>Python</h2>
+		<h4><img src="pic/python.png" alt="Python"></h4>
+		<p>Python is a versatile and beginner-friendly programming language.
+		It's renowned for its simplicity and readability, making it an excellent 
+		choice for those new to coding. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		
+			<div class="cour">
+		<h2>PHP</h2>
+		<h4><img src="pic/php.png" alt="PHP"></h4>
+		<p>PHP is a server-side scripting language commonly used for web development.
+		It's a powerful and flexible tool for creating dynamic websites and web applications. 
+		In a PHP course, students learn how to embed PHP code within HTML to process forms,
+		interact with databases, and perform a wide range of server-side tasks. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		<div class="cour">
+		<h2>AI</h2>
+		<h4><img src="pic/ai.png" alt="AI"></h4>
+		<p>This course equips learners with the knowledge and skills to develop AI applications
+		and solve complex problems using intelligent technologies. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		
+		<div class="cour">
+		<h2>Java</h2>
+		<h4><img src="pic/java.png" alt="Java"></h4>
+		<p>This course teaches the fundamentals of the Java programming language,
+		widely used for software development. Students learn how to create robust,
+		platform-independent applications. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		
+		
+		<div class="cour">
+		<h2>C#</h2>
+		<h4><img src="pic/csharp.png" alt="c#"></h4>
+		<p>This course introduces students to the C# programming language, 
+		a powerful tool for developing Windows applications, games, and web services. 
+		It equips learners with the skills to create software across various platforms. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		
+		<div class="cour">
+		<h2>C++</h2>
+		<h4><img src="pic/c++.png" alt="C++"></h4>
+		<p>This course provides students with the foundations of the C++ programming language,
+		which is widely used for system software, game development, and embedded systems. 
+		It equips learners with the skills needed to create high-performance applications 
+		and is essential for careers in various technical fields. </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		</div>
+		
+		<div class="cour">
+		<h2>JSON</h2>
+		<h4><img src="pic/json.png" alt="JSON"></h4>
+		<p>This course  teaches how to work with JSON (JavaScript Object Notation),
+		a lightweight data-interchange format widely used for data storage and exchange.
+		It equips students with the skills to parse, generate, and manipulate JSON data, 
+		making it valuable for web development, data sharing, and APIs... </p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+            </div>
+		</div>
+		
+		
+		
+		
+		<div class="parentreview">
+		
+		<div class="rev">
+		<h2>Ameera Ahmad</h2>
+		<h4><img src="pic/parent1.png" alt="parent"></h4>
+		<p>Feedback:This website was very helpful and its one of the best i have enrolled my kids in.</p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+            </div>
+		</div>
+		
+		<div class="rev">
+		<h2>Maha Marwan</h2>
+		<h4><img src="pic/parent2.png" alt="parent"></h4>
+		<p>Feedback:Very helpful and insightful.
+		It helped my kid alot in improving his skill.</p>
+		<div class="stars">
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+            </div>
+		</div>
+		
+		<div class="rev">
+		<h2>Joud Yahya</h2>
+		<h4><img src="pic/parent3.png" alt="parent"></h4>
+		<p>Feedback:Very creative.My kid enoyed using this website while shes improving her skills.</p>
+		<div class="stars">
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star1.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+                <img src="pic/star2.png" alt="" >
+            </div>
+		</div>
+		
+		</div> <!--for parent rev -->
+    </main>
+
+
+    <footer>
+       
+         <p class="contactinfo"> Contact Information:<br>LilTechPlant@techtech.com</p>
+  <p class="provide">Provided by LilTechPlanet</p> 
+    </footer>
+
+
+<!--
+<script>
+var icon = document.getElementById("icon");
+
+icon.onclick = function () {
+    document.body.classList.toggle("change-theme");
+}
+
+// Store the current theme in local storage
+    localStorage.setItem("theme", isThemeChanged ? "change-theme" : "");
+
+</script>
+-->
+
+</body>
+</html>

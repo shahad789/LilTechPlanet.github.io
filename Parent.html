@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset= utf-8>
+    <title>Parent</title>
+	<link rel="stylesheet" href="project.css">
+      
+		  <script src="color.js"></script>
+    <style>
+         html {
+    height: 100%;
+}
+        * {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+        }
+          body {
+    
+    background: var(--primary-color);
+      min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+    .child-container {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+
+        .parent-page {
+            display: flex;
+            justify-content: center;
+        }
+
+        .child-box {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .child-name {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .box a {
+            display: block;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .oval-container {
+            width: 200px;
+            height: 100px;
+            background-color: #9b59b6;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+      
+
+        footer {
+            background-color: var(--third-color);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+             margin-top: auto;
+        }
+    </style>
+           <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    try {
+      // Check if local storage has parent's child names array
+      var storedChildNames = localStorage.getItem("childName");
+
+      if (storedChildNames) {
+        // Retrieve and display child's names
+        displayChildren(JSON.parse(storedChildNames));
+      } else {
+        // Default child names
+        var defaultChildNames = ["Sara Suliman", "Ziyad Suliman"];
+        
+        // Store default names in local storage
+        localStorage.setItem("childName", JSON.stringify(defaultChildNames));
+
+        // Display default child names
+        displayChildren(defaultChildNames);
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+
+    function displayChildren(childNames) {
+      try {
+        var parentPage = document.querySelector(".parent-page");
+
+        // Create a container for child names
+        var childContainer = document.createElement("div");
+        childContainer.classList.add("child-container");
+
+        // Display each child's name in a box
+        childNames.forEach(function (childName) {
+          var childBox = document.createElement("div");
+          childBox.classList.add("child-box");
+          childBox.innerHTML = childName;
+          childContainer.appendChild(childBox);
+        });
+
+        // Append the container to the parent page
+        parentPage.appendChild(childContainer);
+      } catch (error) {
+        console.error("An error occurred while displaying the child:", error);
+      }
+    }
+  });
+</script>
+</head>
+
+    
+
+    <body>
+	 <a  id="icon" alt="Change Theme"></a>
+        <header>
+        <div class="logo">
+            <img src="pic/logo.jpg" alt="Platform Logo">
+        </div>
+        <h1>LilTechPlanet</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="Courses.html">Courses</a>
+        <a href="Tutor.html">Tutors</a>
+        <a href="Adminstrator.html">Adminstrator's Dashboard</a>
+        <a href="Parent.html">Parent's Dashboard</a>
+
+    </nav>
+
+    <div id="bread">
+    <ul class="breadcrumb">
+    <li><a href="index.html">Home</a></li>
+<li class="current">Parent's Dashboard</li>
+    </ul>
+    </div>
+    <br>
+        <div class="oval-container">
+            Parent's Name
+        </div>
+        <div class="parent-page">
+            
+        </div>
+
+        <div class="box-container">
+            <div class="box">
+                <a href="Register.html">Register Kid Here</a>
+                <img src="pic/IMG_5181.jpeg" alt="" width="150" height="150">
+            </div>
+            <div class="box">
+                <a href="CourseEnrollment.html">Course Enrollment Here</a>
+                <img src="pic/Coursere.jpeg" alt="" width="150" height="150">
+            </div>
+            <div class="box">
+                <a href="CourseEvaluation.html">Course Evaluation Here</a>
+                <img src="pic/Evaluation.jpg" alt="" width="150" height="150">
+            </div>
+        </div>
+        <footer>
+  <p class="contactinfo"> Contact Information:<br>LilTechPlant@techtech.com</p>
+  <p class="provide">Provided by LilTechPlanet</p> 
+  </footer>
+
+
+</body>
+</html>

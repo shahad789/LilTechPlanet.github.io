@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Register Page</title>
+  <link rel="stylesheet" href="project.css">
+  <script src="javScript.js"></script>
+  <script src="color.js"></script>
+</head>
+
+<body>
+<a  id="icon" alt="Change Theme"></a>
+  <header>
+    <div class="logo">
+      <img src="pic/logo.jpg" alt="Platform Logo">
+    </div>
+    <h1>LilTechPlanet</h1>
+  </header>
+
+  <nav>
+    <a href="index.html" accesskey="h">Home</a>
+    <a href="Courses.html" accesskey="c">Courses</a>
+    <a href="Tutor.html" accesskey="t">Tutors</a>
+    <a href="Adminstrator.html" accesskey="a">Administrator's Dashboard</a>
+    <a href="Parent.html" accesskey="p">Parent's Dashboard</a>
+  </nav>
+
+  <div id="bread">
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Parent.html">Parent</a></li>
+      <li class="current">Register a new kid</li>
+    </ul>
+  </div>
+  
+  
+ <div class="move">
+    <div id="childInfoContainer"></div></div>
+  
+  <main id="reg">
+  
+
+   
+    <div class="registerForm">
+      <div class="title">Registration</div>    
+      <div class="content">
+        <form action="#" method="post" name="regform" id="regform">
+          <div class="kid-Info">
+            <h2 class="headreg">Kid Information</h2>
+
+            <div class="input-box">
+              <span class="details">Kid first name</span>
+              <input type="text" placeholder="Enter your first name" name="kfname" required>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Kid last name</span>
+              <input type="text" placeholder="Enter your last name" name="klname" required>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Date of birth</span>
+              <input type="date" name="birth" required>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Gender</span>
+              <select id="kid-gender" name="kid-gender" name="gen" required>
+                <option value="" disabled selected hidden>Please select a gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+
+            <div class="input-box">
+              <span class="details">Upload Picture:</span>
+              <input type="file" id="kid-picture" name="kid-picture" accept="image/*" required>
+            </div>
+
+            <h2 class="headreg">Contact information</h2>
+
+           <div class="input-box">
+            <span class="details">Parent first name</span>
+            <input type="text" placeholder="Enter your first name"  name="pname" required>
+          </div>
+		  
+		  
+          <div class="input-box">
+		  <span class="details">Parent last name</span>
+            <input type="text" placeholder="Enter your last name"  name="plast" required>
+          </div>
+	
+		 <div class="input-box">
+		  <span class="details">Phone 1</span>
+            <input type="tel" placeholder="05xxxxxxxx"  name="num1" required>
+          </div>
+		  
+		  <div class="input-box">
+		  <span class="details">Phone 2</span>
+            <input type="tel" placeholder="05xxxxxxxx" name="num2" required>
+          </div>
+		  
+		  <div class="input-box">
+		  <span class="details">Email</span>
+            <input type="email" placeholder="...@email.com" name="em"  required>
+          </div>
+
+          </div><!-- kid-Info -->
+          
+          <div class="button">
+            <input type="submit" value="Register" id="subbuton" >
+          </div>
+        </form>
+      </div><!-- content -->
+    </div><!-- registerForm -->
+	 
+  </main>
+  
+  
+   
+  <footer>
+    <p class="contactinfo">Contact Information:<br>LilTechPlant@techtech.com</p>
+    <p class="provide">Provided by LilTechPlanet</p>
+  </footer>
+</body>
+</html>
